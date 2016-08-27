@@ -1,0 +1,17 @@
+{
+
+    "maxerr"        : 50,
+    "unused"        : "strict",
+    "strict"        : false,
+    "maxparams"     : false,
+    "maxdepth"      : false,
+    "maxstatements" : false,
+    "maxcomplexity" : false,
+    "maxlen"        : 80,
+    "varstmt"       : true,
+    "eqnull"        : false,
+    "esversion"     : 6,
+    "globals"       : {
+      "module": true
+    }
+}
