@@ -1,0 +1,6 @@
+{
+  "cookie": "token",
+  "get": "token",
+  "post": "token",
+  "header": "Authorization"
+}

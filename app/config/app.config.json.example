@@ -1,0 +1,7 @@
+{
+  "port": 8080,
+  "debug": false,
+  "secret": "mysupersecretkey",
+  "timezone": "120",
+  "view_engine": "ejs"
+}

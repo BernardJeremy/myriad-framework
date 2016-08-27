@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/BernardJeremy/myriad-framework/issues"
   },
-  "homepage": "https://github.com/BernardJeremy/myriad-framework#readme"
+  "homepage": "https://github.com/BernardJeremy/myriad-framework#readme",
+  "dependencies": {
+    "app-module-path": "^1.1.0",
+    "glob": "^7.0.6"
+  }
 }

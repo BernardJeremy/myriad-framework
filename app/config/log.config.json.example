@@ -1,0 +1,7 @@
+{
+  "INFO": true,
+  "DEBUG": true,
+  "WARN": true,
+  "ERROR": true,
+  "FATAL": true
+}
