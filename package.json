@@ -1,0 +1,24 @@
+{
+  "name": "myriad-framework",
+  "version": "1.0.0",
+  "description": "The Myriad Node.JS framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BernardJeremy/myriad-framework.git"
+  },
+  "keywords": [
+    "node",
+    "JS",
+    "framework"
+  ],
+  "author": "BernardJeremy <jeremy@bernard.sh>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/BernardJeremy/myriad-framework/issues"
+  },
+  "homepage": "https://github.com/BernardJeremy/myriad-framework#readme"
+}
