@@ -2,6 +2,8 @@
   "port": 8080,
   "debug": false,
   "secret": "mysupersecretkey",
-  "timezone": "120",
+  "timezone": "+0200",
+  "date_format": "%d/%m/%Y",
+  "time_format": "%H:%M",
   "view_engine": "ejs"
 }

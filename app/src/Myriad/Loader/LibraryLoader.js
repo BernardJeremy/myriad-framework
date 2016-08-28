@@ -2,25 +2,29 @@ const path = require('path');
 
 const GetDirContent = require('Myriad/Tool/GetDirContent');
 const StringBetween = require('Myriad/Tool/StringBetween');
+const FunctionConstant = require('Myriad/Constant/FunctionConstant');
 const PathConstant = require('Myriad/Constant/PathConstant');
 
-const relativeConfigPaths = [
-  PathConstant.APP_CONFIG_PATH,
+const relativeLibPaths = [
+  PathConstant.APP_LIB_PATH,
 ];
 
 module.exports.store = {};
 
-function loadOneConfigDir (configDirPath) {
+function loadOneLibDir (libDirPath) {
   return new Promise(function(fullfil, reject) {
-    GetDirContent(configDirPath, '*.config.json').then(function(files) {
+    GetDirContent(libDirPath, '*.js').then(function(files) {
       let len = files.length;
       for (let i = 0; i < len; i++) {
-        let configName = StringBetween(files[i].fileName, '', '.');
-        if(module.exports.store.hasOwnProperty(configName)){
-          return reject('Duplicate config name : ' + configName);
+        let libName = StringBetween(files[i].fileName, '', '.');
+        if(module.exports.store.hasOwnProperty(libName)){
+          return reject('Duplicate lib name : ' + libName);
         }
         let obj = require(files[i].path);
-        module.exports.store[configName] = obj;
+        module.exports.store[libName] = obj;
+        if (typeof obj[FunctionConstant.LIB_START_FCT] == 'function'){
+          obj[FunctionConstant.LIB_START_FCT]();
+        }
       }
       fullfil();
     }).catch(function(err) {
@@ -33,10 +37,10 @@ function loadOneConfigDir (configDirPath) {
 module.exports.load = function(rootPath) {
   return new Promise(function(fullfil, reject) {
     let promiseArray = [];
-    for(let i= 0; i < relativeConfigPaths.length; ++i)
+    for(let i= 0; i < relativeLibPaths.length; ++i)
     {
-      let configDirPath = path.join(rootPath, relativeConfigPaths[i]);
-      promiseArray.push(loadOneConfigDir(configDirPath));
+      let libDirPath = path.join(rootPath, relativeLibPaths[i]);
+      promiseArray.push(loadOneLibDir(libDirPath));
     }
     Promise.all(promiseArray).then(function() {
       fullfil();

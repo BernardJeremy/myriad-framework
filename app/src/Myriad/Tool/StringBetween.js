@@ -4,5 +4,4 @@ module.exports = function(target, begin, end) {
   let endAt = (end === '' ? target.length : target.indexOf(end));
 
   return target.substring(startAt, endAt);
-
 };
